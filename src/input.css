@@ -1,0 +1,199 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+:root {
+  --tinggiListMateri: calc(100vh - 2.3rem);
+  --tinggiContentSm: calc(100vh - 2.3rem);
+  --tinggiContentMd: calc(100vh - 3.4rem);
+  --contentListSm: calc(2.3rem - 80%);
+  --contentListMd: calc(2.3rem - 60%);
+  --contentListLg: calc(2.3rem - 30%);
+}
+
+/**************** Element Umum *****************/
+
+.layout {
+  @apply container px-6 mx-auto md:px-12;
+}
+
+.buttonElemen {
+  @apply px-3 py-2 bg-amber-500 rounded-lg text-[#eee] border-[1px] shadow-sm border-transparent transition-all duration-300 text-[0.8rem] md:text-[1rem] mt-4;
+}
+
+.buttonElemen:hover {
+  @apply text-amber-500 bg-transparent border-amber-500;
+}
+
+/* Navbar list start */
+.navbar {
+  @apply flex justify-between items-center py-2 z-[50] text-[#eee] md:py-[1.2rem];
+}
+
+.nav-list {
+  @apply absolute w-44 h-fit rounded-l-xl top-full bg-third right-[0] transition-all duration-500 p-6 flex rotate-[-180deg] origin-top-right z-[99] lg:static lg:p-0 lg:rotate-0 lg:block lg:h-full lg:w-fit lg:bg-transparent;
+}
+
+.nav-list ul li a {
+  transition: 0.3s;
+}
+
+.nav-list ul li:hover a {
+  @apply text-transparent bg-gradient-to-r from-amber-500 to-amber-200 bg-clip-text scale-[3];
+}
+
+.nav-list ul li.active a {
+  @apply text-transparent bg-gradient-to-r from-amber-500 to-amber-200 bg-clip-text;
+}
+
+.menuToggle {
+  position: relative;
+  width: 30px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.menuToggle::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  transform: translateY(-10px);
+  transition: 0.5s;
+  box-shadow: 0 10px #eee;
+  background-color: #eee;
+}
+
+.menuToggle::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  transform: translateY(10px);
+  transition: 0.5s;
+  background-color: #eee;
+}
+
+.navbar.active .menuToggle::before {
+  transform: translateY(0px) rotate(45deg);
+  box-shadow: 0 0px #222;
+}
+
+.navbar.active .menuToggle::after {
+  transform: translateY(0px) rotate(-45deg);
+}
+
+.navbar.active .nav-list {
+  @apply right-[0] rotate-0 transition-all duration-500;
+}
+/* Navbar list end */
+
+/* Content list  start*/
+.contentList {
+  @apply w-[80%] flex absolute top-full transition-all duration-500 text-[#eee] left-[--contentListSm] md:w-[60%] md:left-[--contentListMd] lg:w-[30%] lg:left-[--contentListLg];
+}
+
+.contentList.active {
+  @apply left-0;
+}
+
+.listClass {
+  @apply shadow-md hover:scale-[1.025] transition-all duration-300 my-4 w-[95%];
+}
+
+.textClass {
+  @apply md:text-[1.2rem];
+}
+
+.iconClass {
+  @apply text-amber-500 text-[1.5rem];
+}
+
+.classBtnDropdown {
+  @apply py-4 px-4 flex justify-between items-center w-full md:px-12;
+}
+
+.chapterBtnDropdown {
+  @apply px-8 py-2 bg-forth w-full md:px-16;
+}
+
+.subChapterContent {
+  @apply flex flex-col;
+}
+
+.subChapterContent::before {
+  content: "";
+  position: absolute;
+  width: 1px;
+  background-color: rgb(245, 158, 11);
+  @apply top-[8px] bottom-[8px] left-[3rem] md:left-[4.5rem];
+}
+
+.contentListCircle {
+  @apply w-4 h-4 bg-amber-500 shrink-0 rounded-full -translate-x-1/2 transition-all duration-300;
+}
+
+.dropdown li a {
+  @apply text-[0.7rem] cursor-pointer transition-all duration-300 md:text-[1rem];
+}
+
+.dropdown li:hover .dropdown-button a {
+  @apply text-amber-500;
+}
+
+.subChapterContent li p {
+  @apply transition-all duration-300;
+}
+
+.subChapterContent li {
+  @apply h-full w-full px-12 py-2 md:px-[4.5rem];
+}
+.subChapterContent li:hover {
+  @apply bg-primary/80;
+}
+
+.subChapterContent li:hover p {
+  @apply text-amber-500;
+}
+
+.subChapterContent li:hover .contentListCircle {
+  @apply bg-[#eee];
+}
+
+/* Content list end */
+/**************** Element Umum End *****************/
+
+/**************** BERANDA START *****************/
+
+/* Hero Strat */
+
+.hero {
+  @apply pt-[5rem];
+}
+
+.hero-title {
+  @apply bg-gradient-to-r from-amber-500 to-amber-200 bg-clip-text text-transparent font-bold text-[2.5rem] tracking-wider md:text-[3rem];
+}
+
+.hero-img {
+  @apply h-[20rem] w-[22rem] rounded-full bg-gradient-to-b from-third self-end md:h-[35rem] md:w-[35rem] lg:h-[28rem] lg:w-[28rem] relative;
+}
+
+.hero-desc {
+  @apply flex flex-col gap-4 justify-center h-full md:w-[80%] md:justify-end lg:w-[100%] lg:justify-center;
+}
+
+.hero-paragraf {
+  @apply leading-6 text-[1.05rem] tracking-wider text-[#eee] md:text-[1.4rem] md:leading-10;
+}
+/* Hero End */
+/**************** BERANDA End *****************/
+
+/**************** Materi *****************/
